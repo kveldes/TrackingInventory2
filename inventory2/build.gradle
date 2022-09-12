@@ -33,6 +33,11 @@ dependencies {
     implementation 'com.google.guava:guava:31.0.1-jre'
 }
 
+eclipse {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+}
+
 application {
     // Define the main class for the application.
     mainClass = 'inventory.App'
