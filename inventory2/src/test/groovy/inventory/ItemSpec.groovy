@@ -11,10 +11,10 @@ class ItemSpec extends Specification{
 		Item item = new Item()
 
 		when:
-		item.setName(name)
+		item.name = name
 
 		then:
-		item.getName() == name
+		item.name == name
 
 		where:
 		name << ["name", "name 2"]
