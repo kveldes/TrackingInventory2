@@ -5,6 +5,14 @@ import spock.lang.Unroll
 
 class ItemSpec extends Specification{
 
+	def "new item"(){
+		given:
+		Item item = new Item()
+
+		expect:
+		item.name != null
+	}
+
 	@Unroll
 	def "item return a name"(){
 		given:
@@ -18,6 +26,30 @@ class ItemSpec extends Specification{
 
 		where:
 		name << ["name", "name 2"]
+	}
+
+	def "name cannot be null"(){
+		given:
+		Item item = new Item()
+
+		when:
+		item.name = null
+
+		then:
+		Exception e = thrown(Exception)
+		e.getMessage() == "Name cannot be null"
+	}
+
+	def "name cannot be Empty String"(){
+		given:
+		Item item = new Item()
+
+		when:
+		item.name = ""
+
+		then:
+		Exception e = thrown(Exception)
+		e.message == "Name cannot be empty"
 	}
 
 
