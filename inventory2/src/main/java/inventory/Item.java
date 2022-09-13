@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 
 public class Item {
 
-	public void setName(String name) {
+	private String name;
 
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setSerialNumberSn(String sn) {
@@ -14,6 +16,10 @@ public class Item {
 
 	public void setAmount(BigDecimal amount) {
 
+	}
+
+	public String getName() {
+		return name;
 	}
 
 }
