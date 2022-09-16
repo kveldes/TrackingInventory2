@@ -19,7 +19,7 @@ class ItemSpec extends Specification{
 		where:
 		name << ["name", "name 2"]
 		serialNumber << ["sn1", "sn2"]
-		amount = BigInteger.valueOf(10);
+		amount = BigInteger.valueOf(10)
 	}
 
 	def "name  cannot be null"(){

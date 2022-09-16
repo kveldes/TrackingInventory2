@@ -30,6 +30,14 @@ public class Item {
 		return name;
 	}
 
+	public BigInteger getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigInteger amount) {
+		this.amount = amount;
+	}
+
 	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
 
