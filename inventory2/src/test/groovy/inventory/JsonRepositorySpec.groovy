@@ -18,14 +18,14 @@ class JsonRepositorySpec extends Specification{
 		given:
 		JSONObject jsonObject = new JSONObject();
 		Item item = new Item(name, serialNumber, amount)
-
-		when:
 		jsonObject.put("Name" ,item.name)
 		jsonObject.put("Serial Number", item.serialNumber)
 		jsonObject.put("Value",item.amount)
 
-		then:
+		when:
 		jsonObject.size() != 0
+
+		then:
 		Exception e = thrown(Exception)
 		e.message == "JsonOject cannot be null"
 
