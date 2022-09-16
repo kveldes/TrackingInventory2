@@ -14,10 +14,12 @@ public class Item {
 		serialNumberNotNull(serialNumber);
 		serialNumberNotEmptyString(serialNumber);
 		amountNumberNotNull(amount);
+		amountNumberNotZero(amount);
 		this.name = name;
 		this.serialNumber = serialNumber;
 		this.amount = amount;
 	}
+
 
 	public void setName(String name) {
 		this.name = name;
@@ -65,6 +67,13 @@ public class Item {
 	private void amountNumberNotNull(BigInteger amount) {
 		if (amount == null) {
 			throw new RuntimeException("Amount cannot be null");
+		}
+
+	}
+
+	private void amountNumberNotZero(BigInteger amount) {
+		if (amount.signum() == 0) {
+			throw new RuntimeException("Amount cannot be zero");
 		}
 
 	}

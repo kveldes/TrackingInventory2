@@ -66,4 +66,13 @@ class ItemSpec extends Specification{
 		Exception e = thrown(Exception)
 		e.message == "Amount cannot be null"
 	}
+
+	def "amount  cannot be zero"(){
+		when:
+		Item item = new Item("name","sn1",0)
+
+		then:
+		Exception e = thrown(Exception)
+		e.message == "Amount cannot be zero"
+	}
 }
