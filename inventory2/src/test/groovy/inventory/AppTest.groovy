@@ -4,16 +4,21 @@
 package inventory
 
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class AppTest extends Specification {
-    def "application has a greeting"() {
-        setup:
-        def app = new App()
 
-        when:
-        def result = app.greeting
 
-        then:
-        result != null
-    }
+	@Unroll
+	def "We add some new Items in the List and we excpect the list not empty "(){
+		given:
+		ArrayList<Item> items = new ArrayList<>()
+		Item item1 = new Item("Xbox One", "AXB124AXY",BigInteger.valueOf(399))
+		Item item2 = new Item("Samsung TV", "S40AZBDE4", BigInteger.valueOf(599))
+		items.add(item1)
+		items.add(item2)
+
+		expect:
+		items.size() != 0
+	}
 }

@@ -86,4 +86,9 @@ public class Item {
 
 	}
 
+	@Override
+	public String toString() {
+		return String.format("Item [name=%s, serialNumber=%s, amount=%s]", name, serialNumber, amount);
+	}
+
 }
