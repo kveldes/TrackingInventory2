@@ -6,15 +6,19 @@ package inventory;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
 
 
 public class App {
 	static Scanner scanner = new Scanner(System.in);
 	static ArrayList<Item> items = new ArrayList<>();
+	static Gson gson = new Gson();
+	static String json = "";
 
 	public static void main(String[] args) {
 
 		addingItemsFromUserInput();
+		json = makeTheJsonFileFromAllItemObjects();
 
 	}
 	
@@ -31,6 +35,12 @@ public class App {
 			}
 		}
 		scanner.close();
+	}
+
+	// We take all the Item Objects and make a Json file.We use the Gson Library
+	private static String makeTheJsonFileFromAllItemObjects() {
+		return gson.toJson(items);
+
 	}
 
 }
