@@ -20,18 +20,15 @@ public class App {
 	
 	private static void addingItemsFromUserInput() {
 		boolean addingItem = true;
-		
 		while (addingItem) {
 			System.out.println("Please enter the item info NAME,Serial Number,Value respectively ");
-			items.add(new Item(scanner.next(), scanner.next(), scanner.nextBigDecimal()));
+			items.add(new Item(scanner.nextLine(), scanner.nextLine(), scanner.nextBigDecimal()));
 			System.out.println("Item has been added");
 			System.out.println("do you want to add new item? : Y,N");
 			if (scanner.next().charAt(0) == 'N') {
 				addingItem = false;
 			}
 		}
-		
-
 		scanner.close();
 	}
 
