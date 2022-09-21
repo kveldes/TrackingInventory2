@@ -18,6 +18,7 @@ public class App {
 
 	}
 	
+
 	private static void addingItemsFromUserInput() {
 		boolean addingItem = true;
 		while (addingItem) {
