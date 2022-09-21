@@ -10,6 +10,7 @@ import java.io.InputStream
 
 class AppSpec extends Specification {
 
+	//Section for list
 	def "When we put 1 Item in a empty App list the list could not be epty list"() {
 		given: "an empty list in app and a Item"
 		ArrayList<Item> items = new ArrayList<>()
@@ -25,7 +26,7 @@ class AppSpec extends Specification {
 	def "When we put 2 Items in a empty App list the list ought to have 2 items in it"() {
 		given: "an empty list in app and 2 Items"
 		ArrayList<Item> items = new ArrayList<>()
-		Item item1 = new Item("Xbox One", "AXB124AXY",BigDecimal.valueOf(399.00))
+		Item item1 = new Item("Xbox One", "AXB124AXY",BigDecimal.valueOf(399))
 		Item item2 = new Item("Samsung TV", "S40AZBDE4",BigDecimal.valueOf(599.99))
 
 		when: "adding 2 item object in app list"
@@ -36,8 +37,22 @@ class AppSpec extends Specification {
 		items.size() == 2
 	}
 
+	//Section for makeTheJsonFileFromAllItemObjects() of App
+	def "Testing the makeTheJsonFileFromAllItemObjects() method"(){
+		given:
+		String s1 ='[{"name":"Xbox One","serialNumber":"AXB124AXY","amount":399}]'
+		ArrayList<Item> items = new ArrayList<>()
+		Item item1 = new Item("Xbox One", "AXB124AXY",BigDecimal.valueOf(399))
 
+		when:
+		items.add(item1)
+		String s2 = makeTheJsonFileFromAllItemObjects()
 
+		then:
+		s2 == s1
+	}
+
+	//Section for user input
 	//https://stackoverflow.com/questions/31635698/junit-testing-for-user-input-using-scanner
 	def "shouldTakeUserInput"() {
 		given:

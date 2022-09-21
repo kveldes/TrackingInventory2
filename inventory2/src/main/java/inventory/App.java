@@ -19,6 +19,7 @@ public class App {
 
 		addingItemsFromUserInput();
 		json = makeTheJsonFileFromAllItemObjects();
+		System.out.println(json);
 
 	}
 	
