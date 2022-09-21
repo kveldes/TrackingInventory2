@@ -1,14 +1,14 @@
 package inventory;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
 
 public class Item {
 
 	private String name;
 	private String serialNumber;
-	private BigInteger amount;
+	private BigDecimal amount;
 
-	public Item(String name, String serialNumber, BigInteger amount) {
+	public Item(String name, String serialNumber, BigDecimal amount) {
 		nameNotNull(name);
 		nameNotEmptyString(name);
 		serialNumberNotNull(serialNumber);
@@ -30,11 +30,11 @@ public class Item {
 		return name;
 	}
 
-	public BigInteger getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(BigInteger amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
 
@@ -72,14 +72,14 @@ public class Item {
 
 	}
 
-	private void amountNumberNotNull(BigInteger amount) {
+	private void amountNumberNotNull(BigDecimal amount) {
 		if (amount == null) {
 			throw new RuntimeException("Amount cannot be null");
 		}
 
 	}
 
-	private void amountNumberNotZero(BigInteger amount) {
+	private void amountNumberNotZero(BigDecimal amount) {
 		if (amount.signum() == 0) {
 			throw new RuntimeException("Amount cannot be zero");
 		}

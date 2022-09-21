@@ -3,76 +3,20 @@
  */
 package inventory;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.XML;
-import com.google.gson.Gson;
+
 
 
 public class App {
 	static Scanner scanner = new Scanner(System.in);
 	static ArrayList<Item> items = new ArrayList<>();
-	static Gson gson = new Gson();
-	static String json = "";
-
-
-
-	public static void main(String[] args) throws IOException {
-
-		addingItemsFromUserInput();
-		getJsonFromAllItems();
-		writingJsonStringIntoFile();
-
-		// print into html file (Json -> XML -> HTML)
-
-		// XML
-		// We use the org.json library
-		JSONArray jsonArray = new JSONArray(json);
-		String xml = XML.toString(jsonArray);
-		System.out.println(xml);
-
-
-		}
 
 
 
 
-		// print into scv file
-
-
-
-
-		private static void addingItemsFromUserInput() {
-		Scanner scanner = new java.util.Scanner(System.in);
-		boolean addingItem = true;
-		while (addingItem) {
-			System.out.println("Please enter the item info NAME,Serial Number,Value respectively ");
-			items.add(new Item(scanner.next(), scanner.next(), scanner.nextBigInteger()));
-			System.out.println("Item has been added");
-			System.out.println("do you want to add new item? : Y,N");
-			if (scanner.next().charAt(0) == 'N') {
-				addingItem = false;
-			}
-		}
-		scanner.close();
-	}
-
-	// We take all the Item Objects and make a Json file.We use the Gson Library
-	private static void getJsonFromAllItems() {
-		json = gson.toJson(items);
+	public static void main(String[] args) {
 
 	}
-
-	private static void writingJsonStringIntoFile() throws IOException {
-		String str = json;
-		BufferedWriter writer = new BufferedWriter(new FileWriter("d:/output.json"));
-		writer.write(str);
-		writer.close();
-	}
-
+	
 }
