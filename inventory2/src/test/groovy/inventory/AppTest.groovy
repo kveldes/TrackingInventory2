@@ -21,4 +21,28 @@ class AppTest extends Specification {
 		expect:
 		items.size() != 0
 	}
+
+	//https://stackoverflow.com/questions/31635698/junit-testing-for-user-input-using-scanner
+	def "shouldTakeUserInput"() {
+		given:
+		Item item1 = new Item("Xbox One", "AXB124AXY",BigInteger.valueOf(399))
+		App appInput= new App();
+		Scanner scanner = new Scanner(System.in);
+		String input1 = "Xbox One";
+		String input2 = "AXB124AXY";
+		String input3 = "BigInteger.valueOf(399)";
+
+		InputStream in1 = new ByteArrayInputStream(input1.getBytes());
+		InputStream in2 = new ByteArrayInputStream(input2.getBytes());
+		InputStream in3 = new ByteArrayInputStream(input3.getBytes());
+
+		when:
+
+		System.setIn(in1);
+		System.setIn(in2);
+		System.setIn(in3);
+
+		then:
+		appInput.addingItemsFromUserInput() == item1
+	}
 }
