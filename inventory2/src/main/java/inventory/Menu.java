@@ -45,8 +45,9 @@ public class Menu {
 					System.out.print("Please enter the Serial Number of the Item: ");
 					String serialNumber = scanner.next();
 					System.out.println("Please enter the Item Value");
-					String stringAmount = scanner.next();
-					BigDecimal amount = new BigDecimal(stringAmount);
+//					String stringAmount = scanner.next();
+//					BigDecimal amount = new BigDecimal(stringAmount);
+					BigDecimal amount = scanner.nextBigDecimal();
 					addingAnItem(name, serialNumber, amount);
 					break;
 				case 2:
