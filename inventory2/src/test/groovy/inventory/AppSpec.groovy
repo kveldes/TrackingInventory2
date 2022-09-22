@@ -36,8 +36,7 @@ class AppSpec extends Specification {
 		then: "list ought to have 2 items in it"
 		items.size() == 2
 	}
-
-	//Section for makeTheJsonFileFromAllItemObjects() of App
+	//Testing method makeTheJsonFileFromAllItemObjects()
 	def "Testing the makeTheJsonFileFromAllItemObjects() method"(){
 		given:
 		String s1 ='[{"name":"Xbox One","serialNumber":"AXB124AXY","amount":399}]'

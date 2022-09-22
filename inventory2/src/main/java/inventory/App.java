@@ -3,45 +3,14 @@
  */
 package inventory;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import com.google.gson.Gson;
-
-
 public class App {
-	static Scanner scanner = new Scanner(System.in);
-	static ArrayList<Item> items = new ArrayList<>();
-	static Gson gson = new Gson();
-	static String json = "";
+
 
 	public static void main(String[] args) {
 
-		addingItemsFromUserInput();
-		json = makeTheJsonFileFromAllItemObjects();
-		System.out.println(json);
+		Menu menu = new Menu();
+		Menu.addingItemsFromUserInput();
+
 
 	}
-	
-
-	private static void addingItemsFromUserInput() {
-		boolean addingItem = true;
-		while (addingItem) {
-			System.out.println("Please enter the item info NAME,Serial Number,Value respectively ");
-			items.add(new Item(scanner.nextLine(), scanner.nextLine(), scanner.nextBigDecimal()));
-			System.out.println("Item has been added");
-			System.out.println("do you want to add new item? : Y,N");
-			if (scanner.next().charAt(0) == 'N') {
-				addingItem = false;
-			}
-		}
-		scanner.close();
-	}
-
-	// We take all the Item Objects and make a Json file.We use the Gson Library
-	private static String makeTheJsonFileFromAllItemObjects() {
-		return gson.toJson(items);
-
-	}
-
 }
