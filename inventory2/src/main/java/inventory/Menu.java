@@ -19,7 +19,6 @@ public class Menu {
 	static String json = "";
 	static StringBuilder sb = new StringBuilder();
 	static StringBuilder sb2 = new StringBuilder();
-	private static final String ITEMS_LIST_FILE = "./items-list.csv";
 
 	public static void printMenu(String[] options) {
 		for (String option : options) {
@@ -64,7 +63,6 @@ public class Menu {
 					break;
 				case 5:
 					createTheCsvfile();
-					// writingCsvIntoFile();
 					break;
 				case 6:
 					scanner.close();
@@ -111,7 +109,6 @@ public class Menu {
 		sb.append("<th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Value");
 		sb.append("</th>");
 
-
 		for (Item item : items) {
 		    sb.append("<tr>");
 		    sb.append("<td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> " + item.getName());
@@ -127,7 +124,6 @@ public class Menu {
 		sb.append("</html>");
 
 		System.out.println(sb.toString());
-
 }
 
 // we write the Html file to the disk: ./items.html
@@ -171,8 +167,7 @@ private static void createTheCsvfile() throws IOException {
 		csvWriter.writeNext(new String[] { item.getName(), item.getSerialNumber(), item.getAmount().toString() });
 	}
 	csvWriter.close();
-
-
+	System.out.println("Success!The CSV file was written to the disk.");
 
 }
 
