@@ -49,15 +49,15 @@ public class Menu {
 					addingAnItem(name, serialNumber, amount);
 					break;
 				case 2:
-					createTheJsonfile();
+					createTheJson();
 					writingJsonStringIntoFile();
 					break;
 				case 3:
-					createTheHtmlfile();
+					createTheHtml();
 					writingHtmlIntoFile();
 					break;
 				case 4:
-					createTheXmlfile();
+					createTheXml();
 					writingXmlIntoFile();
 					break;
 				case 5:
@@ -80,7 +80,7 @@ public class Menu {
 		items.add(new Item(name, serialNumber, amount));
 	}
 
-	private static void createTheJsonfile() {
+	private static void createTheJson() {
 		json = gson.toJson(items);
 		System.out.println(json);
 	}
@@ -95,7 +95,7 @@ public class Menu {
 
 
 	// https://codereview.stackexchange.com/questions/63331/efficiently-generating-html-css-table-using-java
-	private static void createTheHtmlfile() {
+	private static void createTheHtml() {
 
 		sb.append("<html>");
 		sb.append("<head>");
@@ -133,7 +133,7 @@ private static void writingHtmlIntoFile() throws IOException {
 }
 
 //https://stackoverflow.com/questions/9825810/generation-of-xml-from-list-of-arrays-of-string-in-java
-private static void createTheXmlfile() {
+private static void createTheXml() {
 	sb2.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
 	sb2.append("<root>\n");
 	int entryId = 1;
