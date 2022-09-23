@@ -20,6 +20,7 @@ public class Menu {
 	static StringBuilder sb = new StringBuilder();
 	static StringBuilder sb2 = new StringBuilder();
 
+
 	public static void printMenu(String[] options) {
 		for (String option : options) {
 			System.out.println(option);
@@ -49,19 +50,23 @@ public class Menu {
 					addingAnItem(name, serialNumber, amount);
 					break;
 				case 2:
-					createTheJson();
-					writingJsonStringIntoFile();
+					TrackingFile tFileJson = new JsonFile(items);
+					tFileJson.createTheFile();
+					tFileJson.writingTheFile();
 					break;
 				case 3:
-					createTheHtml();
-					writingHtmlIntoFile();
+					TrackingFile tFileHtml = new HtmlFile(items);
+					tFileHtml.createTheFile();
+					tFileHtml.writingTheFile();
 					break;
 				case 4:
-					createTheXml();
-					writingXmlIntoFile();
+					TrackingFile tFileXml = new XmlFile(items);
+					tFileXml.createTheFile();
+					tFileXml.writingTheFile();
 					break;
 				case 5:
-					createTheCsvfile();
+					TrackingFile tFileCsv = new CsvFile(items);
+					tFileCsv.createTheFile();
 					break;
 				case 6:
 					scanner.close();

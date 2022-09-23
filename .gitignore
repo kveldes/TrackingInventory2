@@ -9,3 +9,5 @@ inventory2/.classpath
 inventory2/.project
 inventory2/.settings/
 inventory2/bin/
+
+inventory2/items.json
