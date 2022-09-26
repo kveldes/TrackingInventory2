@@ -1,14 +1,10 @@
 package inventory;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Scanner;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.opencsv.CSVWriter;
 
 
 public class Menu {
@@ -84,98 +80,5 @@ public class Menu {
 	private static void addingAnItem(String name, String serialNumber, BigDecimal amount) {
 		items.add(new Item(name, serialNumber, amount));
 	}
-
-	private static void createTheJson() {
-		json = gson.toJson(items);
-		System.out.println(json);
-	}
-
-	// we write the json file to the disk: ./items.json
-	private static void writingJsonStringIntoFile() throws IOException {
-		String str = json;
-		BufferedWriter writer = new BufferedWriter(new FileWriter("./items.json"));
-		writer.write(str);
-		writer.close();
-	}
-
-
-	// https://codereview.stackexchange.com/questions/63331/efficiently-generating-html-css-table-using-java
-	private static void createTheHtml() {
-
-		sb.append("<html>");
-		sb.append("<head>");
-		sb.append("</head>");
-		sb.append("<table>");
-		sb.append("<th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Name");
-		sb.append("</th>");
-		sb.append("<th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Serial Number");
-		sb.append("</th>");
-		sb.append("<th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Value");
-		sb.append("</th>");
-
-		for (Item item : items) {
-		    sb.append("<tr>");
-		    sb.append("<td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> " + item.getName());
-		    sb.append("</td>");
-		    sb.append("<td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> " + item.getSerialNumber());
-		    sb.append("</td>");
-		    sb.append("<td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> " + item.getAmount());
-		    sb.append("</td>");
-		    
-		}
-		sb.append("</table>");
-		sb.append("</body>");
-		sb.append("</html>");
-
-		System.out.println(sb.toString());
-}
-
-// we write the Html file to the disk: ./items.html
-private static void writingHtmlIntoFile() throws IOException {
-	BufferedWriter writer = new BufferedWriter(new FileWriter("./items.html"));
-	writer.write(sb.toString());
-	writer.close();
-}
-
-//https://stackoverflow.com/questions/9825810/generation-of-xml-from-list-of-arrays-of-string-in-java
-private static void createTheXml() {
-	sb2.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
-	sb2.append("<root>\n");
-	int entryId = 1;
-	for (Item item : items) {
-		sb2.append("\t<Item id='" + entryId++ + "'>\n");
-		sb2.append("\t\t<Name>" + item.getName() + "</Name>\n");
-		sb2.append("\t\t<Serial_Number>" + item.getSerialNumber() + "</Serial_Number>\n");
-		sb2.append("\t\t<Value>" + item.getAmount() + "</Value>\n");
-		sb2.append("\t</Item>\n");
-	}
-
-	sb2.append("</root>\n");
-	System.out.println(sb2.toString());
-
-}
-
-//we write the Html file to the disk: ./items.xml
-private static void writingXmlIntoFile() throws IOException {
-	BufferedWriter writer = new BufferedWriter(new FileWriter("./items.xml"));
-	writer.write(sb2.toString());
-	writer.close();
-}
-
-
-//https://springhow.com/opencsv/
-private static void createTheCsvfile() throws IOException {
-	CSVWriter csvWriter = new CSVWriter(new FileWriter("./list.csv"));
-	csvWriter.writeNext(new String[] { "Name", "Serial_Number", "Value" });
-	for (Item item : items) {
-		csvWriter.writeNext(new String[] { item.getName(), item.getSerialNumber(), item.getAmount().toString() });
-	}
-	csvWriter.close();
-	System.out.println("Success!The CSV file was written to the disk.");
-
-}
-
-
-
 
 }
