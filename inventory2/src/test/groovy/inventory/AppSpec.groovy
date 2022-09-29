@@ -4,10 +4,8 @@
 package inventory
 
 import spock.lang.Specification
-import spock.lang.Unroll
-import java.io.InputStream
-
 
 class AppSpec extends Specification {
+
 }
 

@@ -53,6 +53,19 @@ class MenuSpec  extends Specification {
 
 		then:
 		RuntimeException e = thrown()
-		e.message == "Name cannot be null"
+		e.message == "Null values are not accepted"
+	}
+
+	def "cannot add item to the list if empty values are present"(){
+		given:
+		Menu menu = new Menu()
+		menu.items.add("")
+
+		when:
+		menu.getItems()
+
+		then:
+		RuntimeException e = thrown()
+		e.message == "Empty values are not accepted"
 	}
 }

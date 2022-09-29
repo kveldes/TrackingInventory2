@@ -82,12 +82,19 @@ public class Menu {
 
 	public List<Item> getItems() throws RuntimeException {
 		nullValuesProhibited();
+		emptyValuesProhibited();
 		return items;
+	}
+
+	private static void emptyValuesProhibited() {
+		if (items.contains("")){
+			throw new RuntimeException("Empty values are not accepted");
+		}
 	}
 
 	private static void nullValuesProhibited() {
 		if (items.contains(null)){
-			throw new RuntimeException("Name cannot be null");
+			throw new RuntimeException("Null values are not accepted");
 		}
 	}
 }
