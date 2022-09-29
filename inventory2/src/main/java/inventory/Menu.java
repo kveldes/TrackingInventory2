@@ -10,7 +10,6 @@ public class Menu {
 	static Scanner scanner = new Scanner(System.in);
 	static ArrayList<Item> items = new ArrayList<>();
 
-
 	public static void printMenu(String[] options) {
 		for (String option : options) {
 			System.out.println(option);
@@ -81,7 +80,14 @@ public class Menu {
 		items.add(item);
 	}
 
-	public List<Item> getItems() {
+	public List<Item> getItems() throws RuntimeException {
+		nullValuesProhibited();
 		return items;
+	}
+
+	private static void nullValuesProhibited() {
+		if (items.contains(null)){
+			throw new RuntimeException("Name cannot be null");
+		}
 	}
 }

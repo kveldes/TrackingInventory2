@@ -24,7 +24,7 @@ class ItemSpec extends Specification{
 
 	def "name  cannot be null"(){
 		when:
-		Item item = new Item(null,"sn1",10)
+		new Item(null,"sn1",10)
 
 		then:
 		Exception e = thrown(Exception)
@@ -33,7 +33,7 @@ class ItemSpec extends Specification{
 
 	def "name cannot be Empty String"(){
 		when:
-		Item item = new Item("","sn1",10)
+		new Item("","sn1",10)
 
 		then:
 		Exception e = thrown(Exception)
@@ -42,7 +42,7 @@ class ItemSpec extends Specification{
 
 	def "serialNumber  cannot be null"(){
 		when:
-		Item item = new Item("name",null,10)
+		new Item("name",null,10)
 
 		then:
 		Exception e = thrown(Exception)
@@ -51,7 +51,7 @@ class ItemSpec extends Specification{
 
 	def "serialNumber cannot be empty String"(){
 		when:
-		Item item = new Item("name","",10)
+		new Item("name","",10)
 
 		then:
 		Exception e = thrown(Exception)
@@ -60,7 +60,7 @@ class ItemSpec extends Specification{
 
 	def "amount  cannot be null"(){
 		when:
-		Item item = new Item("name","sn1",null)
+		new Item("name","sn1",null)
 
 		then:
 		Exception e = thrown(Exception)
@@ -69,7 +69,7 @@ class ItemSpec extends Specification{
 
 	def "amount  cannot be zero"(){
 		when:
-		Item item = new Item("name","sn1",0)
+		new Item("name","sn1",0)
 
 		then:
 		Exception e = thrown(Exception)

@@ -40,6 +40,19 @@ class MenuSpec  extends Specification {
 		menu.addingAnItem(item)
 
 		then:
-		menu.getItems().size()
+		menu.getItems().size() == 1
+	}
+
+	def "cannot add item to the list if null values are present"(){
+		given:
+		Menu menu = new Menu()
+		menu.items.add(null)
+
+		when:
+		menu.getItems()
+
+		then:
+		RuntimeException e = thrown()
+		e.message == "Name cannot be null"
 	}
 }
