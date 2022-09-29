@@ -5,7 +5,7 @@ import spock.lang.Specification
 class MenuSpec  extends Specification {
 
 	//Section for list
-	def "When we put 1 Item in a empty App list the list could not be epty list"() {
+	def "When we put 1 Item in a empty App list the list could not be empty list"() {
 		given: "an empty list in app and a Item"
 		ArrayList<Item> items = new ArrayList<>()
 		Item item1 = new Item("Xbox One", "AXB124AXY",BigDecimal.valueOf(399))
@@ -29,5 +29,17 @@ class MenuSpec  extends Specification {
 
 		then: "list ought to have 2 items in it"
 		items.size() == 2
+	}
+
+	def "can add an Item to the List"(){
+		setup:
+		Menu menu = new Menu()
+		Item item = new Item("Xbox One", "AXB124AXY",BigDecimal.valueOf(399))
+
+		when:
+		menu.addingAnItem(item)
+
+		then:
+		menu.getItems().size()
 	}
 }

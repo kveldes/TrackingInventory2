@@ -2,19 +2,13 @@ package inventory;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 
 public class Menu {
 	static Scanner scanner = new Scanner(System.in);
 	static ArrayList<Item> items = new ArrayList<>();
-	static Gson gson = new GsonBuilder().enableComplexMapKeySerialization().serializeNulls().setPrettyPrinting()
-			.setVersion(1.0).create();
-	static String json = "";
-	static StringBuilder sb = new StringBuilder();
-	static StringBuilder sb2 = new StringBuilder();
 
 
 	public static void printMenu(String[] options) {
@@ -24,9 +18,14 @@ public class Menu {
 		System.out.print("Choose your option : ");
 	}
 
-	private static String[] options = { "1- Adding an Item ", "2- Create and Print the Json file of Items",
-			"3- Create and Print the Html file of Items", "4- Create and Print the Xml file of Items",
-			"5- Create and Print the Csv file of Items", "6- Exit", };
+	private static final String[] options = {
+			"1- Adding an Item ",
+			"2- Create and Print the Json file of Items",
+			"3- Create and Print the Html file of Items",
+			"4- Create and Print the Xml file of Items",
+			"5- Create and Print the Csv file of Items",
+			"6- Exit"
+	};
 
 	public static void addingItemsFromUserInput() {
 
@@ -43,7 +42,8 @@ public class Menu {
 					String serialNumber = scanner.next();
 					System.out.println("Please enter the Item Value");
 					BigDecimal amount = scanner.nextBigDecimal();
-					addingAnItem(name, serialNumber, amount);
+					Item item = new Item(name, serialNumber, amount);
+					addingAnItem(item);
 					break;
 				case 2:
 					TrackingFile tFileJson = new JsonFile(items);
@@ -77,8 +77,11 @@ public class Menu {
 	}
 
 	// Options
-	private static void addingAnItem(String name, String serialNumber, BigDecimal amount) {
-		items.add(new Item(name, serialNumber, amount));
+	public static void addingAnItem(Item item) {
+		items.add(item);
 	}
 
+	public List<Item> getItems() {
+		return items;
+	}
 }
