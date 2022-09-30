@@ -43,4 +43,6 @@ class JsonFileSpec extends Specification {
         "Xbox One"		| "AXB124AXY"			| 500		|| '{ "name": "Xbox One", "sn": "AXB124AXY", "value": 500 }'
         "Playstation"	| "APORFDGVD"			| 550		|| '{ "name": "Playstation", "sn": "APORFDGVD", "value": 550 }'
     }
+
+
 }
