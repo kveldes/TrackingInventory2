@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public abstract class TrackingFile {
 
-	protected ArrayList<Item> items = new ArrayList<>();
+	protected ArrayList<Item> items;
 
 	public TrackingFile(ArrayList<Item> items) {
 		this.items = items;
