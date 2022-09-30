@@ -1,10 +1,6 @@
 package inventory
 
 import spock.lang.Specification
-import spock.lang.Unroll
-
-import java.nio.file.Files
-import java.nio.file.Paths
 
 class MenuSpec  extends Specification {
 
