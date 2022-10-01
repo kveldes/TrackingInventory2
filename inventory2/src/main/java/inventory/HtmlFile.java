@@ -54,7 +54,6 @@ public class HtmlFile extends TrackingFile {
 		BufferedWriter writer = new BufferedWriter(new FileWriter("./items.html"));
 		writer.write(sb.toString());
 		writer.close();
-
 	}
 
 }
