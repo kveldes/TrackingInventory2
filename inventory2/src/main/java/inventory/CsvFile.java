@@ -3,6 +3,7 @@ package inventory;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import com.opencsv.CSVWriter;
 
@@ -23,6 +24,28 @@ public class CsvFile extends TrackingFile {
 		csvWriter.close();
 		System.out.println("Success!The CSV file was written to the disk.");
 
+	}
+
+	public String toText(){
+		if (items.isEmpty()){
+			return "";
+		}
+		return itemsToCsv();
+	}
+
+	private String itemsToCsv() {
+		return items
+				.stream()
+				.map(this::template)
+				.collect(Collectors.joining("\n"));
+	}
+
+	private String template(Item item) {
+		return item.getName() +
+				"," +
+				item.getSerialNumber() +
+				"," +
+				item.getAmount();
 	}
 
 	@Override
