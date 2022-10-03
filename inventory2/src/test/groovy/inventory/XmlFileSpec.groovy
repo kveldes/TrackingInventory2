@@ -22,4 +22,29 @@ class XmlFileSpec extends Specification {
 		Files.exists(Paths.get("items.xml"))
 		Files.delete(Paths.get("items.xml"))
 	}
+
+	def "Item gets converted to XML"(){
+		given:
+		Item item = new Item("Xbox One", "AXB124AXY", 100 as BigDecimal)
+		ArrayList<Item> items = new ArrayList<>()
+		XmlFile xmlFile = new XmlFile(items)
+
+		when:
+		String xmlString = xmlFile.toText(item)
+
+		then:
+		xmlString == expectedContent()
+	}
+
+	private String expectedContent() {
+		"""<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Item id='1'>
+		<Name>Xbox One</Name>
+		<Serial_Number>AXB124AXY</Serial_Number>
+		<Value>100</Value>
+	</Item>
+</root>
+"""
+	}
 }

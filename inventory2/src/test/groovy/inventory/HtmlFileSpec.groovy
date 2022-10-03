@@ -33,10 +33,10 @@ class HtmlFileSpec extends Specification {
 		String htmlString = htmlFile.toText(item)
 
 		then:
-		htmlString == expectedContentForOneItem()
+		htmlString == expectedContent()
 	}
 
-	private String expectedContentForOneItem() {
+	private String expectedContent() {
 		"<html><head></head><table><th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Name</th><th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Serial Number</th><th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Value</th><tr><td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> Xbox One</td><td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> AXB124AXY</td><td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> 100</td></table></body></html>"
 	}
 }

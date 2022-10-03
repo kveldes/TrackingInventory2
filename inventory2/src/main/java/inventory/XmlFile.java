@@ -36,7 +36,17 @@ public class XmlFile extends TrackingFile {
 		BufferedWriter writer = new BufferedWriter(new FileWriter("./items.xml"));
 		writer.write(sb2.toString());
 		writer.close();
-
 	}
 
+	public String toText(Item item){
+		int entryId = 1;
+		return "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+				+ "<root>\n"
+				+ "\t<Item id='" + entryId + "'>\n"
+				+ "\t\t<Name>" + item.getName() + "</Name>\n"
+				+ "\t\t<Serial_Number>" + item.getSerialNumber() + "</Serial_Number>\n"
+				+ "\t\t<Value>" + item.getAmount() + "</Value>\n"
+				+ "\t</Item>\n"
+				+ "</root>\n";
+	}
 }
