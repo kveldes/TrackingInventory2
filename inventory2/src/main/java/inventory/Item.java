@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public class Item {
 
-	private String name;
-	private String serialNumber;
-	private BigDecimal amount;
+	public String name;
+	public String serialNumber;
+	public BigDecimal amount;
 
 	public Item(String name, String serialNumber, BigDecimal amount) {
 		nameNotNull(name);

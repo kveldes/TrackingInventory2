@@ -3,6 +3,7 @@ package inventory;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class HtmlFile extends TrackingFile {
@@ -56,4 +57,29 @@ public class HtmlFile extends TrackingFile {
 		writer.close();
 	}
 
+	public String toText(Item item){
+		return "<html>"
+				+ "<head>"
+				+ "</head>"
+				+ "<table>"
+				+ "<th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Name"
+				+ "</th>"
+				+ "<th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Serial Number"
+				+ "</th>"
+				+ "<th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Value"
+				+ "</th>"
+				+ "<tr>"
+				+ "<td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> "
+				+ item.getName()
+				+ "</td>"
+				+ "<td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> "
+				+ item.getSerialNumber()
+				+ "</td>"
+				+ "<td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> "
+				+ item.getAmount()
+				+ "</td>"
+				+ "</table>"
+				+ "</body>"
+				+ "</html>";
+	}
 }

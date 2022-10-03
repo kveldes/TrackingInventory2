@@ -22,4 +22,21 @@ class HtmlFileSpec extends Specification {
 		Files.exists(Paths.get("items.html"))
 		Files.delete(Paths.get("items.html"))
 	}
+
+	def "Item gets converted to HTML"(){
+		given:
+		Item item = new Item("Xbox One", "AXB124AXY", 100 as BigDecimal)
+		ArrayList<Item> items = new ArrayList<>()
+		HtmlFile htmlFile = new HtmlFile(items)
+
+		when:
+		String htmlString = htmlFile.toText(item)
+
+		then:
+		htmlString == expectedContentForOneItem()
+	}
+
+	private String expectedContentForOneItem() {
+		"<html><head></head><table><th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Name</th><th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Serial Number</th><th style = \"background: #333; color: white; font-weight: bold; padding: 6px; border: 1px solid #ccc; text-align: left;\"> Value</th><tr><td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> Xbox One</td><td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> AXB124AXY</td><td style = \"padding: 6px; border: 1px solid #ccc; text-align: left;\"> 100</td></table></body></html>"
+	}
 }
