@@ -10,7 +10,6 @@ public class XmlFile extends TrackingFile {
 
 	public XmlFile(ArrayList<Item> items) {
 		super(items);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

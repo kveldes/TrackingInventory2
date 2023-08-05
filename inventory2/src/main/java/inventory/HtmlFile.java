@@ -3,7 +3,6 @@ package inventory;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class HtmlFile extends TrackingFile {
@@ -11,7 +10,6 @@ public class HtmlFile extends TrackingFile {
 
 	public HtmlFile(ArrayList<Item> items) {
 		super(items);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

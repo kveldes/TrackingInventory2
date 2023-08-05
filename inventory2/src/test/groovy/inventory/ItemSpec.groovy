@@ -3,8 +3,7 @@ package inventory
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class ItemSpec extends Specification{
-
+class ItemSpec extends Specification {
 
 	@Unroll
 	def "item return a Name and a Serial number and a Amount"(){

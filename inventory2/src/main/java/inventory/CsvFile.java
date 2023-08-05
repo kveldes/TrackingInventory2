@@ -50,8 +50,6 @@ public class CsvFile extends TrackingFile {
 
 	@Override
 	void writingTheFile() {
-		// Do not implement it theirs no need..
-
+		// Do not implement it theirs no need.
 	}
-
 }
