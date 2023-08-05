@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Menu {
+
 	static Scanner scanner = new Scanner(System.in);
 	static ArrayList<Item> items = new ArrayList<>();
 
@@ -96,5 +96,9 @@ public class Menu {
 		if (items.contains(null)){
 			throw new RuntimeException("Null values are not accepted");
 		}
+	}
+
+	public void reset() {
+		items.clear();
 	}
 }

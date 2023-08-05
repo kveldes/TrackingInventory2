@@ -2,9 +2,14 @@ package inventory
 
 import spock.lang.Specification
 
-class MenuSpec  extends Specification {
+class MenuSpec extends Specification {
 
-	//Section for list
+	Menu menu = new Menu()
+
+	def setup() {
+		menu.reset()
+	}
+
 	def "When we put 1 Item in a empty App list the list could not be empty list"() {
 		given: "an empty list in app and a Item"
 		ArrayList<Item> items = new ArrayList<>()
