@@ -11,3 +11,6 @@ inventory2/.settings/
 inventory2/bin/
 
 inventory2/items.json
+/.idea
+/items.json
+/.idea/
