@@ -6,7 +6,7 @@ import spock.lang.Unroll
 class ItemSpec extends Specification {
 
 	@Unroll
-	def "item return a Name and a Serial number and a Amount"(){
+	def "Item return a Name and a Serial number and a Amount"(){
 		given:
 		Item item = new Item(name, serialNumber, amount)
 
@@ -21,7 +21,7 @@ class ItemSpec extends Specification {
 		amount = BigDecimal.valueOf(10)
 	}
 
-	def "name  cannot be null"(){
+	def "Name cannot be null"(){
 		when:
 		new Item(null,"sn1",BigDecimal.TEN)
 
@@ -30,7 +30,7 @@ class ItemSpec extends Specification {
 		e.message == "Name cannot be null"
 	}
 
-	def "name cannot be Empty String"(){
+	def "Name cannot be empty string"(){
 		when:
 		new Item("","sn1",BigDecimal.TEN)
 
@@ -39,7 +39,7 @@ class ItemSpec extends Specification {
 		e.message == "Name cannot be empty"
 	}
 
-	def "serialNumber  cannot be null"(){
+	def "Serial number cannot be null"(){
 		when:
 		new Item("name",null, BigDecimal.TEN)
 
@@ -48,7 +48,7 @@ class ItemSpec extends Specification {
 		e.message == "SerialNumber cannot be null"
 	}
 
-	def "serialNumber cannot be empty String"(){
+	def "Serial number cannot be empty string"(){
 		when:
 		new Item("name","",BigDecimal.TEN)
 
@@ -57,7 +57,7 @@ class ItemSpec extends Specification {
 		e.message == "SerialNumber cannot be empty"
 	}
 
-	def "amount  cannot be null"(){
+	def "Amount cannot be null"(){
 		when:
 		new Item("name","sn1",null)
 
@@ -66,7 +66,7 @@ class ItemSpec extends Specification {
 		e.message == "Amount cannot be null"
 	}
 
-	def "amount  cannot be zero"(){
+	def "Amount cannot be zero"(){
 		when:
 		new Item("name","sn1",BigDecimal.ZERO)
 

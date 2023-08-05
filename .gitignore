@@ -13,4 +13,6 @@ inventory2/bin/
 inventory2/items.json
 /.idea
 /items.json
+/items.html
+/list.csv
 /.idea/
